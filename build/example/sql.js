@@ -9,13 +9,15 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments)).next());
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 const pg = require("pg");
 const config = require("config");
 const index_1 = require("../lib/index");
@@ -74,8 +76,7 @@ __decorate([
 ], CountriesController.prototype, "getCountries", null);
 __decorate([
     odata_v4_server_1.odata.GET,
-    __param(0, odata_v4_server_1.odata.key),
-    __param(1, odata_v4_server_1.odata.query)
+    __param(0, odata_v4_server_1.odata.key), __param(1, odata_v4_server_1.odata.query)
 ], CountriesController.prototype, "getCountry", null);
 CountriesController = __decorate([
     odata_v4_server_1.odata.type(Country)
@@ -96,13 +97,11 @@ let CitiesController = class CitiesController extends odata_v4_server_1.ODataCon
 };
 __decorate([
     odata_v4_server_1.odata.GET,
-    __param(0, odata_v4_server_1.odata.stream),
-    __param(1, odata_v4_server_1.odata.query)
+    __param(0, odata_v4_server_1.odata.stream), __param(1, odata_v4_server_1.odata.query)
 ], CitiesController.prototype, "getCities", null);
 __decorate([
     odata_v4_server_1.odata.GET,
-    __param(0, odata_v4_server_1.odata.key),
-    __param(1, odata_v4_server_1.odata.query)
+    __param(0, odata_v4_server_1.odata.key), __param(1, odata_v4_server_1.odata.query)
 ], CitiesController.prototype, "getCity", null);
 CitiesController = __decorate([
     odata_v4_server_1.odata.type(City)
@@ -117,8 +116,7 @@ let CountryLanguagesController = class CountryLanguagesController extends odata_
 };
 __decorate([
     odata_v4_server_1.odata.GET,
-    __param(0, odata_v4_server_1.odata.stream),
-    __param(1, odata_v4_server_1.odata.query)
+    __param(0, odata_v4_server_1.odata.stream), __param(1, odata_v4_server_1.odata.query)
 ], CountryLanguagesController.prototype, "getLanguages", null);
 CountryLanguagesController = __decorate([
     odata_v4_server_1.odata.type(CountryLanguage)

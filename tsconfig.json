@@ -5,6 +5,11 @@
     "module": "commonjs",
     "declaration": true,
     "experimentalDecorators": true,
-    "outDir": "build"
+    "outDir": "build",
+    "baseUrl": "./",
+    "paths": {
+        "odata-v4-sql": ["node_modules/odata-v4-sql/lib"],
+        "odata-v4-sql/*": ["node_modules/odata-v4-sql/lib/*"]
+    }
   }
 }

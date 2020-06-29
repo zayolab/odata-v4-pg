@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createFilter = exports.createQuery = void 0;
 const visitor_1 = require("./visitor");
 const odata_v4_sql_1 = require("odata-v4-sql");
 const odata_v4_parser_1 = require("odata-v4-parser");
